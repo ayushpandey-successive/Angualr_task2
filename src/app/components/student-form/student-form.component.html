@@ -1,0 +1,20 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <input formControlName="name" placeholder="Name">
+    <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+      Name is required
+    </div>
+  
+    <input formControlName="email" placeholder="Email">
+    <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+      Valid email is required
+    </div>
+  
+    <input formControlName="grade" placeholder="Grade">
+    <div *ngIf="studentForm.get('grade')?.invalid && studentForm.get('grade')?.touched">
+      Grade is required
+    </div>
+  
+    <button type="submit" [disabled]="studentForm.invalid">
+      {{ student ? 'Update' : 'Add' }} Student
+    </button>
+  </form>
